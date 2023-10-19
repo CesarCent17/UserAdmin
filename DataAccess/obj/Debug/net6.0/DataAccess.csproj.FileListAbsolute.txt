@@ -1,0 +1,14 @@
+D:\Projects\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+D:\Projects\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+D:\Projects\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.dll
+D:\Projects\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.dll
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
