@@ -10,8 +10,6 @@
     <Folder Include="DataSource\Json\" />
     <Folder Include="DataSource\MySql\" />
     <Folder Include="DataSource\SqlServer\Migrations\" />
-    <Folder Include="Repository\Interfaces\" />
-    <Folder Include="Repository\Implementations\" />
   </ItemGroup>
 
   <ItemGroup>
