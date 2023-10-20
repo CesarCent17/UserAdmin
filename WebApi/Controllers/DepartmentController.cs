@@ -59,16 +59,32 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
-        public async Task<ActionResult<ApiResponse<DepartmentWithIdDto>>> Update(DepartmentWithIdDto departmentWithIdDto)
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ApiResponse<DepartmentWithIdDto>>> Update([FromRoute] Guid id, DepartmentUpdateDto departmentUpdateDto)
         {
-            return Ok();
+            var result = await _departmentService.UpdateDepartmentAsync(id, departmentUpdateDto);
+
+            if (!result.Succeeded)
+            {
+                return result.StatusCode == 404
+                  ? NotFound(result)
+                  : StatusCode(result.StatusCode, result);
+            }
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<ApiResponse<Guid>>> Delete(Guid id)
         {
-            return Ok();
+            var result = await _departmentService.DeleteDepartmentAsync(id);
+
+            if (!result.Succeeded)
+            {
+                return result.StatusCode == 404
+                  ? NotFound(result)
+                  : StatusCode(result.StatusCode, result);
+            }
+            return Ok(result);
         }
     }
 }

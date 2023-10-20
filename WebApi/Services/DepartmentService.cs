@@ -54,14 +54,13 @@ namespace WebApi.Services
                 : new ApiResponse<DepartmentWithIdDto>(false, response.ErrorMessage, null, 500);
         }
 
-
-
         public async Task<ApiResponse<Guid>> DeleteDepartmentAsync(Guid id)
         {
             var response = await _departmentRepository.DeleteDepartmentAsync(id);
             if (!response.Succeeded)
             {
-                return new ApiResponse<Guid>(false, response.ErrorMessage, id, 500);
+                var statusCode = response.ErrorMessage == "NotFound" ? 404 : 500;
+                return new ApiResponse<Guid>(false, response.ErrorMessage, Guid.Empty, statusCode);
             }
 
             return new ApiResponse<Guid>(true, "Se ha eliminado el departamento con éxito", id, 200);
@@ -113,9 +112,28 @@ namespace WebApi.Services
         }
     
 
-        public Task<ApiResponse<Department>> UpdateDepartmentAsync(Department department)
+        public async Task<ApiResponse<DepartmentWithIdDto>> UpdateDepartmentAsync(Guid id, DepartmentUpdateDto departmentUpdateDto)
         {
-            throw new NotImplementedException();
+            Department department = new()
+            {
+                Code = departmentUpdateDto.Code,
+                Name = departmentUpdateDto.Name,
+                IsActive = departmentUpdateDto.IsActive,
+            };
+            var response = await _departmentRepository.UpdateDepartmentAsync(id, department);
+            if (!response.Succeeded)
+            {
+                var statusCode = response.ErrorMessage == "NotFound" ? 404 : 500;
+                return new ApiResponse<DepartmentWithIdDto>(false, response.ErrorMessage, null, statusCode);
+            }
+            var departmentResponse = new DepartmentWithIdDto()
+            {
+                Id = response.Data.Id,
+                Code = response.Data.Code,
+                Name = response.Data.Name,
+                IsActive = response.Data.IsActive,
+            };
+            return new ApiResponse<DepartmentWithIdDto>(true, "Se ha actualizado el departamento con éxito", departmentResponse, 200);
         }
     }
 }

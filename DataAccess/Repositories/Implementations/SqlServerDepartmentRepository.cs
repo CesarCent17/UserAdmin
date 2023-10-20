@@ -31,12 +31,12 @@ namespace DataAccess.Repositories.Implementations
 
         public async Task<OperationResult<Guid>> DeleteDepartmentAsync(Guid id)
         {
-            var result = await GetDepartmentByIdAsync(id);
-            if (!result.Succeeded) return new OperationResult<Guid> { Succeeded = false, ErrorMessage = result.ErrorMessage };
+            var department = await _dbContext.Departments.FirstOrDefaultAsync(d => d.Id == id);
+            if (department == null)   return new OperationResult<Guid> { Succeeded = false, ErrorMessage = "NotFound" };
 
             try
             {
-                _dbContext.Departments.Remove(result.Data);
+                _dbContext.Departments.Remove(department);
                 await _dbContext.SaveChangesAsync();
                 return new OperationResult<Guid> { Succeeded = true, Data = id };
             }
@@ -79,13 +79,19 @@ namespace DataAccess.Repositories.Implementations
             }
         }
 
-        public async Task<OperationResult<Department>> UpdateDepartmentAsync(Department department)
+        public async Task<OperationResult<Department>> UpdateDepartmentAsync(Guid id, Department department)
         {
+            var departmentFound = await _dbContext.Departments.FirstOrDefaultAsync(d => d.Id == id);
+            if (departmentFound == null) return new OperationResult<Department> { Succeeded = false, ErrorMessage = "NotFound" };
+
             try
             {
-                _dbContext.Departments.Update(department);
+                departmentFound.Code = department.Code;
+                departmentFound.Name = department.Name;
+                departmentFound.IsActive = department.IsActive;
+                _dbContext.Departments.Update(departmentFound);
                 await _dbContext.SaveChangesAsync();
-                return new OperationResult<Department> { Succeeded = true, Data = department };
+                return new OperationResult<Department> { Succeeded = true, Data = departmentFound };
             }
             catch (Exception ex)
             {

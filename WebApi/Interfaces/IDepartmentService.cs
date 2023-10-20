@@ -10,7 +10,7 @@ namespace WebApi.Interfaces
         Task<ApiResponse<DepartmentWithIdDto>> AddDepartmentAsync(DepartmentDto departmentDto);
         Task<ApiResponse<DepartmentWithIdDto>> GetDepartmentByIdAsync(Guid id);
         Task<ApiResponse<IEnumerable<DepartmentWithIdDto>>> GetAllDepartmentsAsync();
-        Task<ApiResponse<Department>> UpdateDepartmentAsync(Department department);
+        Task<ApiResponse<DepartmentWithIdDto>> UpdateDepartmentAsync(Guid id, DepartmentUpdateDto departmentUpdateDto);
         Task<ApiResponse<Guid>> DeleteDepartmentAsync(Guid id);
     }
 }
