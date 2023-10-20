@@ -1,4 +1,6 @@
 using WebApi.Dependencies;
+using AutoMapper;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

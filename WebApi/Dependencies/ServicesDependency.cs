@@ -7,7 +7,7 @@ using WebApi.Services;
 
 namespace WebApi.Dependencies
 {
-    public class ServicesDependency
+    public static class ServicesDependency
     {
         public static void AddServices(IServiceCollection services, IConfiguration configuration)
         {
@@ -17,7 +17,8 @@ namespace WebApi.Dependencies
             });
             services.AddScoped<IUserRepository, SqlServerUserRepository>();
             services.AddScoped<IDepartmentRepository, SqlServerDepartmentRepository>();
-            services.AddScoped<IDepartmentService, DepartmentService>(); 
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddAutoMapper(typeof(Program));
         }
     }
 }

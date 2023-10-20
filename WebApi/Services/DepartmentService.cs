@@ -1,4 +1,5 @@
-﻿using DataAccess.Entities;
+﻿using AutoMapper;
+using DataAccess.Entities;
 using DataAccess.Repositories.Interfaces;
 using WebApi.Entities;
 using WebApi.Entities.DTO;
@@ -10,11 +11,13 @@ namespace WebApi.Services
     {
         private readonly IDepartmentRepository _departmentRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-        public DepartmentService(IDepartmentRepository departmentRepository, IUserRepository IUserRepository)
+        public DepartmentService(IDepartmentRepository departmentRepository, IUserRepository IUserRepository, IMapper mapper)
         {
             _departmentRepository = departmentRepository;
             _userRepository = IUserRepository;
+            _mapper = mapper;
         }
 
         public async Task<ApiResponse<DepartmentWithIdDto>> AddDepartmentAsync(DepartmentDto departmentDto)
@@ -29,26 +32,9 @@ namespace WebApi.Services
                     return new ApiResponse<DepartmentWithIdDto>(false, userFound.ErrorMessage, null, statusCode);
                 }
             }
-
-            var department = new Department
-            {
-                Code = departmentDto.Code,
-                Name = departmentDto.Name,
-                IsActive = departmentDto.IsActive,
-                CreatedByUserId = departmentDto.CreatedByUserId
-            };
-
+            var department = _mapper.Map<Department>(departmentDto);
             var response = await _departmentRepository.AddDepartmentAsync(department);
-
-            var departmentCreated = new DepartmentWithIdDto
-            {
-                Id = response.Data.Id,
-                Code = departmentDto.Code,
-                Name = departmentDto.Name,
-                IsActive = departmentDto.IsActive,
-                CreatedByUserId = departmentDto.CreatedByUserId
-            };
-
+            var departmentCreated = _mapper.Map<DepartmentWithIdDto>(department);
             return response.Succeeded
                 ? new ApiResponse<DepartmentWithIdDto>(true, "Se ha creado el registro con éxito", departmentCreated, 200)
                 : new ApiResponse<DepartmentWithIdDto>(false, response.ErrorMessage, null, 500);
@@ -74,16 +60,7 @@ namespace WebApi.Services
             {
                 return new ApiResponse<IEnumerable<DepartmentWithIdDto>>(false, response.ErrorMessage, null, 500);
             }
-
-            var departmentDtos = response.Data.Select(department => new DepartmentWithIdDto
-            {
-                Id = department.Id,
-                Code = department.Code,
-                Name = department.Name,
-                IsActive = department.IsActive,
-                CreatedByUserId = department.CreatedByUserId
-            }).ToList();
-
+            var departmentDtos = _mapper.Map<IEnumerable<DepartmentWithIdDto>>(response.Data);
             return new ApiResponse<IEnumerable<DepartmentWithIdDto>>(true, "Obtuvimos la lista de departamentos con éxito", departmentDtos, 200);
         }
 
@@ -97,42 +74,20 @@ namespace WebApi.Services
                 return new ApiResponse<DepartmentWithIdDto>(false, response.ErrorMessage, null, statusCode);
             }
 
-            var department = response.Data;
-
-            var departmentDto = new DepartmentWithIdDto
-            {
-                Id = department.Id,
-                Code = department.Code,
-                Name = department.Name,
-                IsActive = department.IsActive,
-                CreatedByUserId = department.CreatedByUserId
-            };
-
+            var departmentDto = _mapper.Map<DepartmentWithIdDto>(response.Data);
             return new ApiResponse<DepartmentWithIdDto>(true, "Obtuvimos el departamento con éxito", departmentDto, 200);
         }
-    
 
         public async Task<ApiResponse<DepartmentWithIdDto>> UpdateDepartmentAsync(Guid id, DepartmentUpdateDto departmentUpdateDto)
         {
-            Department department = new()
-            {
-                Code = departmentUpdateDto.Code,
-                Name = departmentUpdateDto.Name,
-                IsActive = departmentUpdateDto.IsActive,
-            };
+            var department = _mapper.Map<Department>(departmentUpdateDto);
             var response = await _departmentRepository.UpdateDepartmentAsync(id, department);
             if (!response.Succeeded)
             {
                 var statusCode = response.ErrorMessage == "NotFound" ? 404 : 500;
                 return new ApiResponse<DepartmentWithIdDto>(false, response.ErrorMessage, null, statusCode);
             }
-            var departmentResponse = new DepartmentWithIdDto()
-            {
-                Id = response.Data.Id,
-                Code = response.Data.Code,
-                Name = response.Data.Name,
-                IsActive = response.Data.IsActive,
-            };
+            var departmentResponse = _mapper.Map<DepartmentWithIdDto>(response.Data);
             return new ApiResponse<DepartmentWithIdDto>(true, "Se ha actualizado el departamento con éxito", departmentResponse, 200);
         }
     }
