@@ -1,14 +1,14 @@
-﻿using DataAccess.Entities;
-using WebApi.Entities;
+﻿using WebApi.Entities;
+using WebApi.Entities.DTO;
 
 namespace WebApi.Interfaces
 {
     public interface IJobTitleService
     {
-        Task<ApiResponse<JobTitle>> AddJobTitleAsync(JobTitle jobTitle);
-        Task<ApiResponse<JobTitle>> GetJobTitleByIdAsync(Guid id);
-        Task<ApiResponse<IEnumerable<JobTitle>>> GetAllJobTitlesAsync();
-        Task<ApiResponse<JobTitle>> UpdateJobTitleAsync(JobTitle jobTitle);
+        Task<ApiResponse<JobTitleWithIdDto>> AddJobTitleAsync(JobTitleDto jobTitleDto);
+        Task<ApiResponse<JobTitleWithIdDto>> GetJobTitleByIdAsync(Guid id);
+        Task<ApiResponse<IEnumerable<JobTitleWithIdDto>>> GetAllJobTitlesAsync();
+        Task<ApiResponse<JobTitleWithIdDto>> UpdateJobTitleAsync(Guid id, JobTitleUpdateDto jobTitleUpdateDto);
         Task<ApiResponse<Guid>> DeleteJobTitleAsync(Guid id);
     }
 }

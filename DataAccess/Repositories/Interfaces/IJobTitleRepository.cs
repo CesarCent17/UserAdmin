@@ -13,7 +13,7 @@ namespace DataAccess.Repositories.Interfaces
         Task<OperationResult<JobTitle>> GetJobTitleByIdAsync(Guid id);
         Task<OperationResult<IEnumerable<JobTitle>>> GetAllJobTitlesAsync();
         Task<OperationResult<JobTitle>> AddJobTitleAsync(JobTitle jobTitle);
-        Task<OperationResult<JobTitle>> UpdateJobTitleAsync(JobTitle jobTitle);
+        Task<OperationResult<JobTitle>> UpdateJobTitleAsync(Guid id, JobTitle jobTitle);
         Task<OperationResult<Guid>> DeleteJobTitleAsync(Guid id);
     }
 }

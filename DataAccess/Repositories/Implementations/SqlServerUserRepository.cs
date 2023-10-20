@@ -35,12 +35,12 @@ namespace DataAccess.Repositories.Implementations
 
         public async Task<OperationResult<Guid>> DeleteUserAsync(Guid id)
         {
-            var result = await GetUserByIdAsync(id);
-            if (!result.Succeeded) return new OperationResult<Guid> { Succeeded = false, ErrorMessage = result.ErrorMessage };
+            var userFound = await _dbContext.Users.FirstOrDefaultAsync(d => d.Id == id);
+            if (userFound == null) return new OperationResult<Guid> { Succeeded = false, ErrorMessage = "NotFound" };
 
             try
             {
-                _dbContext.Users.Remove(result.Data);
+                _dbContext.Users.Remove(userFound);
                 await _dbContext.SaveChangesAsync();
                 return new OperationResult<Guid> { Succeeded = true, Data = id };
             }
@@ -83,13 +83,25 @@ namespace DataAccess.Repositories.Implementations
             }
         }
 
-        public async Task<OperationResult<User>> UpdateUserAsync(User user)
+        public async Task<OperationResult<User>> UpdateUserAsync(Guid id, User user)
         {
+            var userFound = await _dbContext.Users.FirstOrDefaultAsync(d => d.Id == id);
+            if (userFound == null) return new OperationResult<User> { Succeeded = false, ErrorMessage = "NotFound" };
+
             try
             {
-                _dbContext.Users.Update(user);
+                userFound.Username = user.Username;
+                userFound.Email = user.Email;
+                userFound.FirstName = user.FirstName;
+                userFound.MiddleName = user.MiddleName;
+                userFound.LastName = user.LastName;
+                userFound.SecondLastName = user.SecondLastName;
+                userFound.DepartmentId = user.DepartmentId;
+                userFound.JobTitleId = user.JobTitleId;
+
+                _dbContext.Users.Update(userFound);
                 await _dbContext.SaveChangesAsync();
-                return new OperationResult<User> { Succeeded = true , Data = user };
+                return new OperationResult<User> { Succeeded = true , Data = userFound };
             }
             catch (Exception ex)
             {

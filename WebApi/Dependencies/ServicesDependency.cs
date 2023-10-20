@@ -17,7 +17,10 @@ namespace WebApi.Dependencies
             });
             services.AddScoped<IUserRepository, SqlServerUserRepository>();
             services.AddScoped<IDepartmentRepository, SqlServerDepartmentRepository>();
+            services.AddScoped<IJobTitleRepository, SqlServerJobTitleRepository>();
             services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<IJobTitleService, JobTitleService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddAutoMapper(typeof(Program));
         }
     }

@@ -38,7 +38,7 @@ namespace WebApi.Controllers
 
             if (!response.Succeeded)
             {
-                return StatusCode(500, new ApiResponse<IEnumerable<DepartmentWithIdDto>>(false, response.ErrorMessage, null, 500));
+                return StatusCode(500, new ApiResponse<IEnumerable<DepartmentWithIdDto>>(false, response.Message, null, 500));
             }
 
             return Ok(new ApiResponse<IEnumerable<DepartmentWithIdDto>>(true, "Obtuvimos la lista de departamentos con éxito", response.Data, 200));

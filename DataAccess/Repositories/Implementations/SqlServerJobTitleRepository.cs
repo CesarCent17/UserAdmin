@@ -31,12 +31,12 @@ namespace DataAccess.Repositories.Implementations
 
         public async Task<OperationResult<Guid>> DeleteJobTitleAsync(Guid id)
         {
-            var result = await GetJobTitleByIdAsync(id);
-            if (!result.Succeeded) return new OperationResult<Guid> { Succeeded = false, ErrorMessage = result.ErrorMessage };
+            var jobTitleFound = await _dbContext.JobTitles.FirstOrDefaultAsync(d => d.Id == id);
+            if (jobTitleFound == null) return new OperationResult<Guid> { Succeeded = false, ErrorMessage = "NotFound" };
 
             try
             {
-                _dbContext.JobTitles.Remove(result.Data);
+                _dbContext.JobTitles.Remove(jobTitleFound);
                 await _dbContext.SaveChangesAsync();
                 return new OperationResult<Guid> { Succeeded = true, Data = id };
             }
@@ -70,7 +70,7 @@ namespace DataAccess.Repositories.Implementations
                 }
                 else
                 {
-                    return new OperationResult<JobTitle> { Succeeded = false, ErrorMessage = "Título de trabajo no encontrado" };
+                    return new OperationResult<JobTitle> { Succeeded = false, ErrorMessage = "NotFound" };
                 }
             }
             catch (Exception ex)
@@ -79,13 +79,19 @@ namespace DataAccess.Repositories.Implementations
             }
         }
 
-        public async Task<OperationResult<JobTitle>> UpdateJobTitleAsync(JobTitle jobTitle)
+        public async Task<OperationResult<JobTitle>> UpdateJobTitleAsync(Guid id, JobTitle jobTitle)
         {
+            var jobTitleFound = await _dbContext.JobTitles.FirstOrDefaultAsync(d => d.Id == id);
+            if (jobTitleFound == null) return new OperationResult<JobTitle> { Succeeded = false, ErrorMessage = "NotFound" };
+
             try
             {
-                _dbContext.JobTitles.Update(jobTitle);
+                jobTitleFound.Code = jobTitle.Code;
+                jobTitleFound.Name = jobTitle.Name;
+                jobTitleFound.IsActive = jobTitle.IsActive;
+                _dbContext.JobTitles.Update(jobTitleFound);
                 await _dbContext.SaveChangesAsync();
-                return new OperationResult<JobTitle> { Succeeded = true, Data = jobTitle };
+                return new OperationResult<JobTitle> { Succeeded = true, Data = jobTitleFound };
             }
             catch (Exception ex)
             {

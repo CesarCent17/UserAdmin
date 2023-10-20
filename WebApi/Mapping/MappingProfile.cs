@@ -11,6 +11,10 @@ namespace WebApi.Mapping
             CreateMap<Department, DepartmentDto>().ReverseMap();
             CreateMap<Department, DepartmentWithIdDto>();
             CreateMap<DepartmentUpdateDto, Department>();
+
+            CreateMap<JobTitle, JobTitleDto>().ReverseMap();
+            CreateMap<JobTitle, JobTitleWithIdDto>();
+            CreateMap<JobTitleUpdateDto, JobTitle>();
         }
     }
 }

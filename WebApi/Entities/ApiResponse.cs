@@ -2,13 +2,17 @@
 
 namespace WebApi.Entities
 {
-    public class ApiResponse<T>: OperationResult<T>
+    public class ApiResponse<T>
     {
+        public bool Succeeded { get; set; }
+        public string Message { get; set; }
+        public T Data { get; set; }
         public int StatusCode { get; set; }
-        public ApiResponse(bool succeeded, string errorMessage, T data, int statusCode)
+
+        public ApiResponse(bool succeeded, string message, T data, int statusCode)
         {
             Succeeded = succeeded;
-            ErrorMessage = errorMessage;
+            Message = message;
             Data = data;
             StatusCode = statusCode;
         }
