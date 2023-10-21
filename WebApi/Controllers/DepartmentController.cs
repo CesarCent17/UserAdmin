@@ -1,6 +1,4 @@
-﻿using DataAccess.Entities;
-using DataAccess.Repositories.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Entities;
 using WebApi.Entities.DTO;
 using WebApi.Interfaces;
@@ -12,7 +10,7 @@ namespace WebApi.Controllers
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService _departmentService;
-        public DepartmentController(IDepartmentService departmentService) 
+        public DepartmentController(IDepartmentService departmentService)
         {
             _departmentService = departmentService;
         }

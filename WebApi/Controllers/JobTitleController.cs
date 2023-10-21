@@ -2,7 +2,6 @@
 using WebApi.Entities;
 using WebApi.Entities.DTO;
 using WebApi.Interfaces;
-using WebApi.Services;
 
 namespace WebApi.Controllers
 {

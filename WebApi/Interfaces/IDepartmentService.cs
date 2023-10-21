@@ -1,6 +1,4 @@
-﻿using DataAccess.Entities;
-using DataAccess.Utils;
-using WebApi.Entities;
+﻿using WebApi.Entities;
 using WebApi.Entities.DTO;
 
 namespace WebApi.Interfaces
