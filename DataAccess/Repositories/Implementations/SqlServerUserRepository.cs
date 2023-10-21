@@ -54,7 +54,10 @@ namespace DataAccess.Repositories.Implementations
         {
             try
             {
-                var users = await _dbContext.Users.ToListAsync();
+                var users = await _dbContext.Users
+                    .Include(u => u.Department)
+                    .Include(u => u.JobTitle)
+                    .ToListAsync();
                 return new OperationResult<IEnumerable<User>> { Succeeded = true, Data = users };
             }
             catch (Exception ex)
@@ -67,7 +70,10 @@ namespace DataAccess.Repositories.Implementations
         {
             try
             {
-                var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+                var user = await _dbContext.Users
+                    .Include(u => u.Department)
+                    .Include(u => u.JobTitle)
+                    .FirstOrDefaultAsync(u => u.Id == id);
                 if (user != null)
                 {
                     return new OperationResult<User> { Succeeded = true, Data = user };

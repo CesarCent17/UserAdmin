@@ -9,7 +9,7 @@
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string SecondLastName { get; set; }
-        public Guid DepartmentId { get; set; }
-        public Guid JobTitleId { get; set; }
+        public DepartmentWithIdDto Department { get; set; }
+        public JobTitleWithIdDto JobTitle { get; set; }
     }
 }
