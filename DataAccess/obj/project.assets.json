@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "dotenv.net/3.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/dotenv.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/dotenv.net.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -953,6 +962,21 @@
     }
   },
   "libraries": {
+    "dotenv.net/3.1.3": {
+      "sha512": "gzksGrozUM/6OzBL2M99EINDLB5vhZScnRw5/oYaKx0O4PWusCBzzq9JCofhP8nL3uoli6V7SLmrwpF/PTj8XQ==",
+      "type": "package",
+      "path": "dotenv.net/3.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dotenv.net.3.1.3.nupkg.sha512",
+        "dotenv.net.nuspec",
+        "lib/netstandard1.6/dotenv.net.dll",
+        "lib/netstandard2.0/dotenv.net.dll",
+        "lib/netstandard2.1/dotenv.net.dll"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -2454,23 +2478,24 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 7.0.0",
-      "Microsoft.Extensions.Configuration.Json >= 7.0.0"
+      "Microsoft.Extensions.Configuration.Json >= 7.0.0",
+      "dotenv.net >= 3.1.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cesar\\.nuget\\packages\\": {}
+    "C:\\Users\\desarrollo.11\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\UserAdmin\\DataAccess\\obj\\",
+      "projectPath": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\desarrollo.11\\.nuget\\packages\\",
+      "outputPath": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\desarrollo.11\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2527,6 +2552,10 @@
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "dotenv.net": {
+            "target": "Package",
+            "version": "[3.1.3, )"
           }
         },
         "imports": [
@@ -2545,7 +2574,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

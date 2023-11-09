@@ -1,6 +1,7 @@
 ﻿using DataAccess.DataSource.SqlServer;
 using DataAccess.Repositories.Implementations;
 using DataAccess.Repositories.Interfaces;
+using dotenv.net;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Interfaces;
 using WebApi.Services;
@@ -11,6 +12,8 @@ namespace WebApi.Dependencies
     {
         public static void AddServices(IServiceCollection services, IConfiguration configuration)
         {
+            DotEnv.Load();
+            string SqlServerConnection = Environment.GetEnvironmentVariable("SQLSERVER");
             services.AddDbContext<TestDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection"));

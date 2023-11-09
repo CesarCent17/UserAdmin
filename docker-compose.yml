@@ -1,0 +1,28 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:80" 
+    depends_on:
+      - sqlserver
+    networks:
+      - networkdev
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=uZD7t0J66
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    networks:
+      - networkdev
+
+networks:
+  networkdev:
+    driver: bridge

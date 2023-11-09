@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj": {}
+    "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj": {
+    "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\UserAdmin\\DataAccess\\obj\\",
+        "projectPath": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\desarrollo.11\\.nuget\\packages\\",
+        "outputPath": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\desarrollo.11\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,6 +71,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "dotenv.net": {
+              "target": "Package",
+              "version": "[3.1.3, )"
             }
           },
           "imports": [
@@ -89,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,5 @@
 ﻿using DataAccess.Entities;
+using dotenv.net;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -13,14 +14,9 @@ namespace DataAccess.DataSource.SqlServer
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
-                var builder = new ConfigurationBuilder()
-                    .AddJsonFile(appSettingsPath);
-
-                IConfigurationRoot configuration = builder.Build();
-                string connectionString = configuration.GetConnectionString("SqlServerConnection");
-
-                optionsBuilder.UseSqlServer(connectionString);
+                DotEnv.Load();
+                string SqlServerConnection = Environment.GetEnvironmentVariable("SQLSERVER");
+                optionsBuilder.UseSqlServer(SqlServerConnection);
             }
         }
         public DbSet<Department> Departments { get; set; }

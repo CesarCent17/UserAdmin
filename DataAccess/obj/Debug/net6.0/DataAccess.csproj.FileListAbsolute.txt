@@ -12,3 +12,17 @@ D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
 D:\Projects\UserAdmin\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\cesarcent\.net\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\cesarcent\.net\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+C:\cesarcent\.net\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\cesarcent\.net\UserAdmin\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\cesarcent\.net\UserAdmin\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

@@ -1,5 +1,5 @@
-/DataAccess/appsettings.json
-/WebApi/appsettings.json
+# /DataAccess/appsettings.json
+# /WebApi/appsettings.json
 
 /DataAccess/bin/
 /WebApi/obj/

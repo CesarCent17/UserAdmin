@@ -31,6 +31,15 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "dotenv.net/3.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/dotenv.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/dotenv.net.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -1062,7 +1071,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Configuration.Json": "7.0.0"
+          "Microsoft.Extensions.Configuration.Json": "7.0.0",
+          "dotenv.net": "3.1.3"
         },
         "compile": {
           "bin/placeholder/DataAccess.dll": {}
@@ -1101,6 +1111,21 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "dotenv.net/3.1.3": {
+      "sha512": "gzksGrozUM/6OzBL2M99EINDLB5vhZScnRw5/oYaKx0O4PWusCBzzq9JCofhP8nL3uoli6V7SLmrwpF/PTj8XQ==",
+      "type": "package",
+      "path": "dotenv.net/3.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "dotenv.net.3.1.3.nupkg.sha512",
+        "dotenv.net.nuspec",
+        "lib/netstandard1.6/dotenv.net.dll",
+        "lib/netstandard2.0/dotenv.net.dll",
+        "lib/netstandard2.1/dotenv.net.dll"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -2922,23 +2947,24 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "DataAccess >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "dotenv.net >= 3.1.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cesar\\.nuget\\packages\\": {}
+    "C:\\Users\\desarrollo.11\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\UserAdmin\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\cesarcent\\.net\\UserAdmin\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "D:\\Projects\\UserAdmin\\WebApi\\WebApi.csproj",
-      "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\UserAdmin\\WebApi\\obj\\",
+      "projectPath": "C:\\cesarcent\\.net\\UserAdmin\\WebApi\\WebApi.csproj",
+      "packagesPath": "C:\\Users\\desarrollo.11\\.nuget\\packages\\",
+      "outputPath": "C:\\cesarcent\\.net\\UserAdmin\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\desarrollo.11\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2952,8 +2978,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\Projects\\UserAdmin\\DataAccess\\DataAccess.csproj"
+            "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\cesarcent\\.net\\UserAdmin\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -2985,6 +3011,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.5.0, )"
+          },
+          "dotenv.net": {
+            "target": "Package",
+            "version": "[3.1.3, )"
           }
         },
         "imports": [
@@ -3006,7 +3036,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
